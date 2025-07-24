@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+  padding: 40px;
+}
+.container {
+  background: white;
+  padding: 30px;
+  max-width: 500px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input, select, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}

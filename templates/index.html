@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Key Balance Checker</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>API Key Balance Checker</h1>
+    <form id="checkForm">
+      <label>Platform:</label>
+      <select name="platform">
+        <option value="openai">OpenAI</option>
+      </select>
+      <label>API Key:</label>
+      <input type="text" name="api_key" required>
+      <button type="submit">Check Balance</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById('checkForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const response = await fetch('/check', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+      document.getElementById('result').innerText = result.success ? result.result : "❌ " + result.result;
+    });
+  </script>
+</body>
+</html>
